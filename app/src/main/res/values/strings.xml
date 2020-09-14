@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TradeWin App</string>
+    <string name="title_email">Email or Username</string>
+    <string name="hint_email_username">Enter Email or Username</string>
+    <string name="title_password">Password</string>
+    <string name="hint_password">Password</string>
+    <string name="text_register"><u>Register</u></string>
+    <string name="forgot_password"><u>Forgot Password</u></string>
 </resources>
