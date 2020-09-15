@@ -6,4 +6,16 @@
     <string name="hint_password">Password</string>
     <string name="text_register"><u>Register</u></string>
     <string name="forgot_password"><u>Forgot Password</u></string>
+    <string name="label_accounts_settings">TradeWin Account</string>
+    <string name="btn_register">Register</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_repassword">Re-Password</string>
+    <string name="check_network">Please check network connection</string>
+    <string name="error_json_format">Json format exception</string>
+    <string name="error_time_out">Time out</string>
+    <string name="key_md5">35b4fa6139b9303f1b001147f698008d</string>
+    <string name="notification">Notification</string>
+    <string name="reports">Trade Win</string>
+    <string name="account">Account</string>
 </resources>

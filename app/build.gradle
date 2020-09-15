@@ -36,16 +36,13 @@ android {
         dev {
             applicationId "trade.win"
             dimension "default"
-            buildConfigField("String", "BASE_URL", "\"https://demo.aris-vn.com:8099/api/\"")
-            buildConfigField("String", "URL_IMAGE", "\"https://demo.aris-vn.com:8099\"")
+            buildConfigField("String", "BASE_URL", "\"http://trade.win/\"")
         }
 
         product {
             applicationId "trade.win"
             dimension "default"
             buildConfigField("String", "BASE_URL", "\"https://demo.aris-vn.com:8108/api/\"")
-            buildConfigField("String", "URL_IMAGE", "\"https://demo.aris-vn.com:8108\"")
-
         }
     }
 }

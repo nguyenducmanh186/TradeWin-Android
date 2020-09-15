@@ -15,7 +15,7 @@ object RestClient {
     fun retrofitService(): RestService {
         val gson = GsonBuilder().setLenient().create()
         val service = Retrofit.Builder()
-            .baseUrl("BuildConfig.BASE_URL")
+            .baseUrl("http://trade.win/")
             .client(SSLOkHttpClient.unsafeOkHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
