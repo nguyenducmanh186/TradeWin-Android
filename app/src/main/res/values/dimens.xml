@@ -7,4 +7,6 @@
     <dimen name="margin_40dp">40dp</dimen>
     <dimen name="margin_15dp">15dp</dimen>
     <dimen name="padding_5dp">5dp</dimen>
+    <dimen name="radius_5dp">5dp</dimen>
+    <dimen name="margin_top_5dp">5dp</dimen>
 </resources>

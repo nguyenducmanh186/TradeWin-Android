@@ -12,8 +12,8 @@ interface RestService {
                     @Query("time") time: String ,
                     @Query("sign") sign: String  ): Call<LoginRespone>
 
-//    @POST("login")
+//    @POST("test-token")
 //    @FormUrlEncoded
 //    fun login(
-//        @Field("phone") numberphone: String): Call<LoginResponse>
+//        @Field("token_parram") numberphone: String)
 }

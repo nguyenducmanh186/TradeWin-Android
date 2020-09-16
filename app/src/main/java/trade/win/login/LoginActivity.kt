@@ -7,6 +7,7 @@ import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_login.*
 import trade.win.MainActivity
 import trade.win.R
+import trade.win.authenticate.UserManager
 import trade.win.base.BaseActivity
 import trade.win.help.MD5
 import trade.win.register.RegisterActivity
@@ -59,7 +60,7 @@ class LoginActivity : BaseActivity(), ILogin {
             val unixTime = System.currentTimeMillis() / 1000
             val passwordEncrypt = MD5().md5(password)
             val sign = MD5().md5(edtUsername+passwordEncrypt+unixTime+keyMD5)
-            loginPresenter.login(edtUsername, passwordEncrypt,unixTime.toString(), sign)
+            loginPresenter.login(edtUsername, passwordEncrypt,unixTime.toString(), sign, this)
         }
     }
 

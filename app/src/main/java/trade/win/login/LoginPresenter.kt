@@ -1,14 +1,16 @@
 package trade.win.login
 
+import android.content.Context
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import trade.win.authenticate.UserManager
 import trade.win.rest.RestClient
 
 class LoginPresenter {
     lateinit var iLogin: ILogin
 
-    fun login(email: String, password: String, time: String, sign: String){
+    fun login(email: String, password: String, time: String, sign: String, context: Context){
         val callAPI = RestClient.retrofitService().login(email, password,time, sign)
         callAPI.enqueue(object :Callback<LoginRespone>{
             override fun onFailure(call: Call<LoginRespone>, t: Throwable) {
@@ -20,6 +22,7 @@ class LoginPresenter {
                     val body = response.body()
                     if (body!= null){
                         if (body.status == 1){
+                            UserManager.getInstance(context).addAccount(email, password, if (body.token_parram!= null) body.token_parram else "")
                             iLogin.onSuccessLogin(body)
                         } else {
                             iLogin.onError(body.msg!!)

@@ -2,27 +2,28 @@ package trade.win.webview
 
 import android.net.http.SslError
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
 import kotlinx.android.synthetic.main.fragment_web_view.*
 import trade.win.R
+import trade.win.authenticate.UserManager
 import trade.win.base.BaseActivity
 import trade.win.base.BaseFragment
 import trade.win.base.BaseWebView
 import trade.win.login.LoginActivity
 import trade.win.login.LoginRespone
+import java.net.URLDecoder
+import java.net.URLEncoder
 
 class WebviewFragment : BaseFragment(){
 
-    lateinit var loginRespone: LoginRespone
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (arguments?.getSerializable(LOGIN_RESPONSE)!= null){
-            loginRespone = arguments?.getSerializable(LOGIN_RESPONSE) as LoginRespone
-        }
+
     }
 
     override fun onCreateView(
@@ -36,7 +37,15 @@ class WebviewFragment : BaseFragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        webView.loadUrl("http://trade.win/test-token/?token_parram="+loginRespone.token_parram)
+        showProgress()
+        val token = UserManager.getInstance(requireContext()).getToken()
+        val encode = URLEncoder.encode(token)
+        Log.i("LLLLLLLLLL", "encode: "+encode)
+        webView.loadUrl("http://trade.win/test-token/?token_parram="+token)
+
+        val decode = URLDecoder.decode(encode)
+        Log.i("LLLLLLLLLL", "decode: "+ decode)
+
 
         webView.settings.javaScriptEnabled = true
         webView.settings.setGeolocationEnabled(true)
@@ -49,6 +58,8 @@ class WebviewFragment : BaseFragment(){
         //webViewTermsOfUse.settings.setGeolocationDatabasePath(filesDir.path)
 //        webView.webChromeClient = BaseWebView.GeoWebChromeClient()
 
+        var count = 0
+
         webView.webViewClient = object : WebViewClient() {
             override fun onReceivedSslError(
                 view: WebView?,
@@ -60,17 +71,23 @@ class WebviewFragment : BaseFragment(){
 
             override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
                 view.loadUrl(url)
+                Log.i("LLLLLLL", "shouldOverrideUrlLoading")
                 return true
             }
 
             override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
                 super.onReceivedError(view, request, error)
-
+                dismissProgress()
             }
 
 
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
+                count++
+                Log.i("LLLLLLL", "onPageFinished")
+                if (count == 2){
+                    dismissProgress()
+                }
 
             }
 

@@ -4,16 +4,27 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import es.dmoral.toasty.Toasty
+import trade.win.help.CustomProgressDialog
 
 abstract class BaseFragment : Fragment() {
 
+    fun findNavController(): NavController {
+        return NavHostFragment.findNavController(this)
+    }
+
+    open fun showWarning(message: String){
+        Toasty.warning(context!!, message).show()
+    }
 
     open fun showProgress() {
-//   CustomProgressDialog.newInstance().progressDialogStart(context)
+        CustomProgressDialog.newInstance().progressDialogStart(context)
     }
 
     open fun dismissProgress() {
-//   CustomProgressDialog.newInstance().progressDialogStop()
+        CustomProgressDialog.newInstance().progressDialogStop()
     }
 
     open fun isConnectedInternet(context: Context): Boolean {
