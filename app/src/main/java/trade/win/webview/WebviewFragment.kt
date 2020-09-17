@@ -13,6 +13,7 @@ import trade.win.authenticate.UserManager
 import trade.win.base.BaseActivity
 import trade.win.base.BaseFragment
 import trade.win.base.BaseWebView
+import trade.win.help.SharedPreferencesHelper
 import trade.win.login.LoginActivity
 import trade.win.login.LoginRespone
 import java.net.URLDecoder
@@ -38,13 +39,17 @@ class WebviewFragment : BaseFragment(){
         super.onViewCreated(view, savedInstanceState)
 
         showProgress()
-        val token = UserManager.getInstance(requireContext()).getToken()
+        val token =SharedPreferencesHelper(context!!).getToken()
         val encode = URLEncoder.encode(token)
-        Log.i("LLLLLLLLLL", "encode: "+encode)
-        webView.loadUrl("http://trade.win/test-token/?token_parram="+token)
+//        Log.i("LLLLLLLLLL", "encode: "+encode)
+        webView.loadUrl("http://trade.win/test-token/?token_parram="+encode)
 
         val decode = URLDecoder.decode(encode)
-        Log.i("LLLLLLLLLL", "decode: "+ decode)
+//        Log.i("LLLLLLLLLL", "decode: "+ decode)
+
+        showWarning("endcode: "+ encode)
+        showWarning("token: "+ token)
+
 
 
         webView.settings.javaScriptEnabled = true
@@ -59,6 +64,7 @@ class WebviewFragment : BaseFragment(){
 //        webView.webChromeClient = BaseWebView.GeoWebChromeClient()
 
         var count = 0
+
 
         webView.webViewClient = object : WebViewClient() {
             override fun onReceivedSslError(
@@ -88,6 +94,7 @@ class WebviewFragment : BaseFragment(){
                 if (count == 2){
                     dismissProgress()
                 }
+
 
             }
 

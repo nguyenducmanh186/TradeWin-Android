@@ -5,6 +5,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import trade.win.authenticate.UserManager
+import trade.win.help.SharedPreferencesHelper
 import trade.win.rest.RestClient
 
 class LoginPresenter {
@@ -22,6 +23,7 @@ class LoginPresenter {
                     val body = response.body()
                     if (body!= null){
                         if (body.status == 1){
+                            SharedPreferencesHelper(context).inputToken(body.token_parram!!)
                             UserManager.getInstance(context).addAccount(email, password, if (body.token_parram!= null) body.token_parram else "")
                             iLogin.onSuccessLogin(body)
                         } else {

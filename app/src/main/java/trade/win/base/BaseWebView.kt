@@ -43,7 +43,7 @@ abstract class BaseWebView : BaseFragment(){
 
         if (isConnectedInternet(context!!)) {
             var isLoading = true
-            showProgress()
+//            showProgress()
 
             webView.settings.javaScriptEnabled = true
             webView.settings.setGeolocationEnabled(true)
