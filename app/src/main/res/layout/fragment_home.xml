@@ -37,12 +37,10 @@
         android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/iconMenu"
-            android:paddingBottom="@dimen/margin_15dp"
-            android:paddingTop="@dimen/margin_15dp"
-            android:paddingLeft="@dimen/margin_15dp"
-            android:src="@drawable/ic_baseline_copyright_24"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@drawable/ic_tradewin"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             app:tint="@android:color/black" />
         <TextView
             android:layout_weight="1"
@@ -52,7 +50,7 @@
             android:layout_height="wrap_content"
             android:gravity="center|left"
             android:padding="@dimen/margin_15dp"
-            android:text="TRADE WIN" />
+            android:text="@string/header_trade_win" />
         <ImageView
             android:src="@drawable/ic_baseline_navigate_next_24"
             android:layout_width="wrap_content"
@@ -75,12 +73,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
-            android:paddingBottom="@dimen/margin_15dp"
-            android:paddingTop="@dimen/margin_15dp"
-            android:paddingLeft="@dimen/margin_15dp"
-            android:src="@drawable/ic_baseline_copyright_24"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:src="@drawable/ic_history"
+            android:padding="@dimen/margin_10dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             app:tint="@android:color/black" />
         <TextView
             android:layout_weight="1"
@@ -89,7 +85,7 @@
             android:layout_height="wrap_content"
             android:gravity="center|left"
             android:padding="@dimen/margin_15dp"
-            android:text="NOTIFICATION" />
+            android:text="@string/title_history" />
         <ImageView
             android:src="@drawable/ic_baseline_navigate_next_24"
             android:layout_width="wrap_content"
@@ -97,8 +93,9 @@
 
     </LinearLayout>
 
+
     <LinearLayout
-        android:id="@+id/layoutAccount"
+        android:id="@+id/layoutInvatation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginRight="@dimen/margin_20dp"
@@ -112,12 +109,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
-            android:paddingBottom="@dimen/margin_15dp"
-            android:paddingTop="@dimen/margin_15dp"
-            android:paddingLeft="@dimen/margin_15dp"
-            android:src="@drawable/ic_baseline_copyright_24"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_10dp"
+            android:src="@drawable/ic_invitation"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             app:tint="@android:color/black" />
         <TextView
             android:layout_weight="1"
@@ -126,13 +121,50 @@
             android:layout_height="wrap_content"
             android:gravity="center|left"
             android:padding="@dimen/margin_15dp"
-            android:text="ACCOUNT MANAGER" />
+            android:text="@string/header_invitation" />
         <ImageView
             android:src="@drawable/ic_baseline_navigate_next_24"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutAccount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginRight="@dimen/margin_20dp"
+        android:layout_marginLeft="@dimen/margin_20dp"
+        app:layout_constraintTop_toBottomOf="@+id/layoutInvatation"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_select_item"
+        android:gravity="center"
+        android:weightSum="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:padding="@dimen/margin_10dp"
+            android:src="@drawable/ic_account"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:tint="@android:color/black" />
+        <TextView
+            android:layout_weight="1"
+            android:textColor="@android:color/black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center|left"
+            android:padding="@dimen/margin_15dp"
+            android:text="@string/header_account_manager" />
+        <ImageView
+            android:src="@drawable/ic_baseline_navigate_next_24"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+
 
 
 

@@ -41,9 +41,9 @@ abstract class BaseWebView : BaseFragment(){
         // load pdf from google docs
         // "https://docs.google.com/gview?embedded=true&url="
 
-        if (isConnectedInternet(context!!)) {
+        if (isConnectedInternet(requireContext())) {
             var isLoading = true
-//            showProgress()
+            showProgress()
 
             webView.settings.javaScriptEnabled = true
             webView.settings.setGeolocationEnabled(true)
@@ -55,6 +55,8 @@ abstract class BaseWebView : BaseFragment(){
             webView.settings.domStorageEnabled = true
             //webViewTermsOfUse.settings.setGeolocationDatabasePath(filesDir.path)
             webView.webChromeClient = GeoWebChromeClient()
+
+            var count = 0
 
             webView.webViewClient = object : WebViewClient() {
                 override fun onReceivedSslError(
@@ -68,25 +70,34 @@ abstract class BaseWebView : BaseFragment(){
                 override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
                     view.loadUrl(url)
                     shouldOverrideUrlLoading(url)
+                    Log.i("MMMMMMMMM", "shouldOverrideUrlLoading")
                     return true
                 }
 
                 override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
                     super.onReceivedError(view, request, error)
-                    if (isLoading) {
+                    Log.i("MMMMMMMMM", "onReceivedError")
+                    dismissProgress()
+
+//                    if (isLoading) {
 //                        dismissProgress()
-                        isLoading = false
-                    }
+//                        isLoading = false
+//                    }
                 }
 
 
                 override fun onPageFinished(view: WebView?, url: String?) {
                     super.onPageFinished(view, url)
-                    if (isLoading) {
-                        onPageFinished(url)
-//                        dismissProgress()
-                        isLoading = false
+                    Log.i("MMMMMMMMM", "onPageFinished")
+                    count++
+                    if (count == 2){
+                        dismissProgress()
                     }
+//                    if (isLoading) {
+//                        onPageFinished(url)
+//                        dismissProgress()
+//                        isLoading = false
+//                    }
                 }
 
             }

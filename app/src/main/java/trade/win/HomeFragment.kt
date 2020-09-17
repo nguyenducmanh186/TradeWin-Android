@@ -29,11 +29,18 @@ class HomeFragment : BaseFragment(){
         }
 
         layoutNotification.setOnClickListener {
-            showWarning("Not yet implement")
+            findNavController().navigate(R.id.navigate_fragment_from_home_to_history)
+
         }
 
         layoutAccount.setOnClickListener {
-            showWarning("Not yet implement")
+            findNavController().navigate(R.id.navigate_fragment_from_home_to_account)
+
+        }
+
+        layoutInvatation.setOnClickListener {
+            findNavController().navigate(R.id.navigate_fragment_from_home_to_invitation)
+
         }
     }
 }

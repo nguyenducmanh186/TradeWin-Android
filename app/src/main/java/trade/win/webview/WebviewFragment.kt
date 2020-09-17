@@ -1,13 +1,17 @@
 package trade.win.webview
 
+import android.app.Activity
 import android.net.http.SslError
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
 import kotlinx.android.synthetic.main.fragment_web_view.*
+import kotlinx.android.synthetic.main.layout_header.*
+import trade.win.App
 import trade.win.R
 import trade.win.authenticate.UserManager
 import trade.win.base.BaseActivity
@@ -19,13 +23,8 @@ import trade.win.login.LoginRespone
 import java.net.URLDecoder
 import java.net.URLEncoder
 
-class WebviewFragment : BaseFragment(){
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
+class WebviewFragment : BaseWebView() {
+    private val baseURL = "http://trade.win/test-token/?token_parram="
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,81 +34,47 @@ class WebviewFragment : BaseFragment(){
         return inflater.inflate(R.layout.fragment_web_view, container, false)
     }
 
+    override fun getWebView(): WebView {
+        return webView
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        txtHeaderToolbar.text = getString(R.string.header_trade_win)
+        initAction()
+        initWebview()
+        pullToReFreshLayout()
 
-        showProgress()
-        val token =SharedPreferencesHelper(context!!).getToken()
+    }
+
+    private fun initAction() {
+        btnBack.setOnClickListener {
+            (context as Activity).onBackPressed()
+        }
+    }
+
+    private fun initWebview() {
+        val token = SharedPreferencesHelper(App.applicationContext()).getToken()
         val encode = URLEncoder.encode(token)
-//        Log.i("LLLLLLLLLL", "encode: "+encode)
-        webView.loadUrl("http://trade.win/test-token/?token_parram="+encode)
-
-        val decode = URLDecoder.decode(encode)
-//        Log.i("LLLLLLLLLL", "decode: "+ decode)
-
-        showWarning("endcode: "+ encode)
-        showWarning("token: "+ token)
-
-
-
-        webView.settings.javaScriptEnabled = true
-        webView.settings.setGeolocationEnabled(true)
-        webView.settings.javaScriptCanOpenWindowsAutomatically = true
-//        webView.webViewClient = BaseWebView.GeoWebViewClient()
-
-        webView.settings.setAppCacheEnabled(true)
-        webView.settings.databaseEnabled = true
-        webView.settings.domStorageEnabled = true
-        //webViewTermsOfUse.settings.setGeolocationDatabasePath(filesDir.path)
-//        webView.webChromeClient = BaseWebView.GeoWebChromeClient()
-
-        var count = 0
-
-
-        webView.webViewClient = object : WebViewClient() {
-            override fun onReceivedSslError(
-                view: WebView?,
-                handler: SslErrorHandler?,
-                error: SslError?
-            ) {
-                handler?.proceed()
-            }
-
-            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-                view.loadUrl(url)
-                Log.i("LLLLLLL", "shouldOverrideUrlLoading")
-                return true
-            }
-
-            override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
-                super.onReceivedError(view, request, error)
-                dismissProgress()
-            }
-
-
-            override fun onPageFinished(view: WebView?, url: String?) {
-                super.onPageFinished(view, url)
-                count++
-                Log.i("LLLLLLL", "onPageFinished")
-                if (count == 2){
-                    dismissProgress()
-                }
-
-
-            }
-
-        }
+        loadUrl(baseURL + encode, webView)
     }
 
+    private fun pullToReFreshLayout() {
+        swipeWebView.setColorSchemeResources(
+            R.color.colorPrimary,
+            android.R.color.holo_green_dark,
+            android.R.color.holo_orange_dark,
+            android.R.color.holo_blue_dark
+        )
 
-    companion object{
-        const val LOGIN_RESPONSE = "login"
-        fun newIntance(loginRespone: LoginRespone?): WebviewFragment{
-            val fragment = WebviewFragment()
-            val bundle = Bundle()
-            bundle.putSerializable(LOGIN_RESPONSE, loginRespone)
-            fragment.arguments = bundle
-            return fragment
+        swipeWebView.setOnRefreshListener {
+            initWebview()
+            Handler().postDelayed ({
+                swipeWebView.isRefreshing = false
+            }, 3000)
         }
+
+
     }
+
 }

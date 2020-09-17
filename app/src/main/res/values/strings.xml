@@ -18,4 +18,8 @@
     <string name="notification">Notification</string>
     <string name="reports">Trade Win</string>
     <string name="account">Account</string>
+    <string name="header_account_manager">ACCOUNT MANAGER</string>
+    <string name="header_trade_win">TRADE WIN</string>
+    <string name="title_history">HISTORY</string>
+    <string name="header_invitation">INVITATION</string>
 </resources>

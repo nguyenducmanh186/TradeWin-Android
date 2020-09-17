@@ -5,6 +5,7 @@ import android.accounts.AccountManager
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
+import trade.win.help.SharedPreferencesHelper
 
 class UserManager (val context: Context) {
     private val accountManager: AccountManager = AccountManager.get(context)
@@ -26,6 +27,7 @@ class UserManager (val context: Context) {
 
     fun logout() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
+            SharedPreferencesHelper(context).clearUserLogin()
             accountManager.removeAccountExplicitly(getAccount())
         }
     }

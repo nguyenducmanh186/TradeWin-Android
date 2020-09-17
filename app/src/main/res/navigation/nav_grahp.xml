@@ -10,11 +10,14 @@
         <action android:id="@+id/navigate_fragment_from_home_to_trade_win"
             app:destination="@id/fragmentTradeWin" />
 
-        <action android:id="@+id/navigate_fragment_from_home_to_notification"
-            app:destination="@id/fragmentNotification" />
+        <action android:id="@+id/navigate_fragment_from_home_to_history"
+            app:destination="@id/fragmentHistory" />
 
         <action android:id="@+id/navigate_fragment_from_home_to_account"
             app:destination="@id/fragmentAccount" />
+
+        <action android:id="@+id/navigate_fragment_from_home_to_invitation"
+            app:destination="@id/fragmentInvitation" />
 
     </fragment>
 
@@ -24,14 +27,20 @@
 
     </fragment>
 
-    <fragment android:id="@+id/fragmentNotification"
-        android:name="trade.win.notification.NotificationFragment">
+    <fragment android:id="@+id/fragmentHistory"
+        android:name="trade.win.history.HistoryFragment">
 
 
     </fragment>
 
     <fragment android:id="@+id/fragmentTradeWin"
         android:name="trade.win.webview.WebviewFragment">
+
+
+    </fragment>
+
+    <fragment android:id="@+id/fragmentInvitation"
+        android:name="trade.win.invitation.InvitationFragment">
 
 
     </fragment>
