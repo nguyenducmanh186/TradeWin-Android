@@ -20,7 +20,7 @@
         android:textStyle="bold"
         android:textColor="@android:color/black"
         android:textSize="@dimen/text_size_17dp"
-        android:text="SIGNAGE ORDER"
+        android:text="HEADER"
         android:id="@+id/txtHeaderToolbar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -29,4 +29,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <ImageButton
+        android:id="@+id/btnLogout"
+        android:visibility="visible"
+        android:padding="@dimen/margin_10dp"
+        android:background="@android:color/transparent"
+        android:src="@mipmap/ic_logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

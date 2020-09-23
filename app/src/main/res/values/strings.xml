@@ -22,4 +22,15 @@
     <string name="header_trade_win">TRADE WIN</string>
     <string name="title_history">HISTORY</string>
     <string name="header_invitation">INVITATION</string>
+    <string name="title_your_signal">Your Signal</string>
+    <string name="all_signal">All Signal:</string>
+    <string name="running">Running:</string>
+    <string name="done_sell">Done sell:</string>
+    <string name="stop_loss">Stop loss:</string>
+    <string name="title_your_reward">Your Reward</string>
+    <string name="bonus">Referral Bonus:</string>
+    <string name="donate">Received Donate:</string>
+    <string name="vn_token">VN Token:</string>
+    <string name="token_available">TW Token Available:</string>
+    <string name="token_locked">TW Token Locked:</string>
 </resources>

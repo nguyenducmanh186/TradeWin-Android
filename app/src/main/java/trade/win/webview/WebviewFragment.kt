@@ -56,6 +56,11 @@ class WebviewFragment : BaseWebView() {
     private fun initWebview() {
         val token = SharedPreferencesHelper(App.applicationContext()).getToken()
         val encode = URLEncoder.encode(token)
+
+        Log.i("HHHHHHHHHHH", "encode: "+encode)
+
+        Log.i("HHHHHHHHHHH", "token: "+token)
+
         loadUrl(baseURL + encode, webView)
     }
 

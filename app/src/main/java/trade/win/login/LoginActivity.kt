@@ -65,6 +65,8 @@ class LoginActivity : BaseActivity(), ILogin {
             val unixTime = System.currentTimeMillis() / 1000
             val passwordEncrypt = MD5().md5(password)
             val sign = MD5().md5(edtUsername+passwordEncrypt+unixTime+keyMD5)
+
+            Log.i("MMMMMMMMMM", "unixTime: "+  unixTime +"  passwordEncrypt: "+ passwordEncrypt + "   sign: "+sign)
             loginPresenter.login(edtUsername, passwordEncrypt,unixTime.toString(), sign, this)
         }
     }
@@ -72,6 +74,7 @@ class LoginActivity : BaseActivity(), ILogin {
     override fun onSuccessLogin(loginRespone: LoginRespone) {
         Toasty.success(this, loginRespone.msg!!).show()
         dismissProgress()
+        SharedPreferencesHelper(this).saveLoginData(loginRespone)
         Log.i("LLLLLLL", loginRespone.token_parram)
         val intent = Intent(this, MainActivity::class.java)
         intent.putExtra(LOGIN_REPONSE, loginRespone)
