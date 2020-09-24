@@ -33,4 +33,5 @@
     <string name="vn_token">VN Token:</string>
     <string name="token_available">TW Token Available:</string>
     <string name="token_locked">TW Token Locked:</string>
+    <string name="default_notification_channel_id">fcm_default_channel</string>
 </resources>

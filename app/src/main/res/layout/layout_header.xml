@@ -31,7 +31,7 @@
 
     <ImageButton
         android:id="@+id/btnLogout"
-        android:visibility="visible"
+        android:visibility="gone"
         android:padding="@dimen/margin_10dp"
         android:background="@android:color/transparent"
         android:src="@mipmap/ic_logout"

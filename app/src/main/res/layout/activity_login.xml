@@ -79,6 +79,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <CheckBox
+                android:checked="true"
                 android:layout_marginTop="@dimen/margin_10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layoutPassword"

@@ -3,6 +3,7 @@ package trade.win.login
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import com.google.firebase.iid.FirebaseInstanceId
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_login.*
 import trade.win.MainActivity
@@ -42,9 +43,10 @@ class LoginActivity : BaseActivity(), ILogin {
             if (isConnectedInternet()) {
                 actionLogin()
             } else {
-                showError("Please check internet connnection")
+                showError(getString(R.string.check_network))
             }
         }
+        SharedPreferencesHelper(this).saveRememberLogin(true)
 
         cbRememberme.setOnCheckedChangeListener { compoundButton, check ->
             SharedPreferencesHelper(this).saveRememberLogin(check)
@@ -54,7 +56,13 @@ class LoginActivity : BaseActivity(), ILogin {
     private fun actionLogin() {
         val edtUsername = edtUsername.text.toString()
         val password = edtPassword.text.toString()
-
+        var fcm_token = "fcm"
+        try {
+            fcm_token = FirebaseInstanceId.getInstance().token!!
+        } catch (e: KotlinNullPointerException) {
+            Log.i("FCM_TOKEN", e.toString())
+            e.printStackTrace()
+        }
         if (edtUsername.isEmpty()) {
             showError("Enter mail or username")
         } else if (password.isEmpty()) {
@@ -66,7 +74,7 @@ class LoginActivity : BaseActivity(), ILogin {
             val passwordEncrypt = MD5().md5(password)
             val sign = MD5().md5(edtUsername+passwordEncrypt+unixTime+keyMD5)
 
-            Log.i("MMMMMMMMMM", "unixTime: "+  unixTime +"  passwordEncrypt: "+ passwordEncrypt + "   sign: "+sign)
+            Log.i("MMMMMMMMMM", "unixTime: "+  unixTime +"  passwordEncrypt: "+ passwordEncrypt + "   sign: "+sign + "  fcm_token:"+ fcm_token)
             loginPresenter.login(edtUsername, passwordEncrypt,unixTime.toString(), sign, this)
         }
     }

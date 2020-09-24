@@ -52,6 +52,10 @@ class UserManager (val context: Context) {
         return accountManager.getUserData(getAccount(), TOKEN)
     }
 
+    fun getEmail(): String {
+        return accountManager.getUserData(getAccount(), EMAIL)
+    }
+
     companion object {
         const val AUTH_TOKEN_TYPE = "heinekenbrewerytour.vn.spo"
         const val ACCOUNT_TYPE = "heineken-spo"

@@ -16,7 +16,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:src="@drawable/logo_trade"
+                android:src="@drawable/logo"
                 android:layout_marginTop="@dimen/margin_20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

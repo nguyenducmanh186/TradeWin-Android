@@ -6,8 +6,16 @@ import android.net.NetworkInfo
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.google.gson.JsonIOException
+import com.google.gson.JsonSyntaxException
 import es.dmoral.toasty.Toasty
+import trade.win.App
+import trade.win.R
 import trade.win.help.CustomProgressDialog
+import java.net.ConnectException
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
+import java.util.concurrent.TimeoutException
 
 abstract class BaseFragment : Fragment() {
 
@@ -16,7 +24,7 @@ abstract class BaseFragment : Fragment() {
     }
 
     open fun showWarning(message: String){
-        Toasty.warning(context!!, message).show()
+        Toasty.warning(App.applicationContext(), message).show()
     }
 
     open fun showProgress() {
@@ -41,6 +49,24 @@ abstract class BaseFragment : Fragment() {
             }
         }
         return false
+    }
+
+    open fun showError(error: String) {
+        dismissProgress()
+        Toasty.error(App.applicationContext(), error).show()
+    }
+
+    open fun showOnFailureException(t: Throwable) {
+        dismissProgress()
+        if (t is TimeoutException || t is SocketTimeoutException) {
+            showError(getString(R.string.error_time_out))
+        } else if (t is JsonIOException || t is JsonSyntaxException) {
+            showError(getString(R.string.error_json_format))
+        } else if (t is UnknownHostException || t is ConnectException) {
+            showError(getString(R.string.check_network))
+        }else {
+            showError(t.message.toString())
+        }
     }
 
 

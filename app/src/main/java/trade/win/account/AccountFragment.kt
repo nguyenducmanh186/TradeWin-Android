@@ -36,6 +36,7 @@ class AccountFragment : BaseFragment() {
     private fun initData() {
         if (SharedPreferencesHelper(App.applicationContext()).getLoginData()!= null){
             val loginData = SharedPreferencesHelper(App.applicationContext()).getLoginData()!!
+            txtHello.text = "Hello: "+ UserManager.getInstance(App.applicationContext()).getEmail()
             txtAllSignal.text = loginData.allsignal.toString()
             txtRunning.text = loginData.signalrunning.toString()
             txtDoneSell.text = loginData.signaldonesell.toString()
