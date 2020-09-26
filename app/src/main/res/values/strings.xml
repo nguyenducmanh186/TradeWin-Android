@@ -34,4 +34,10 @@
     <string name="token_available">TW Token Available:</string>
     <string name="token_locked">TW Token Locked:</string>
     <string name="default_notification_channel_id">fcm_default_channel</string>
+    <string name="empty_username">Username is not empty</string>
+    <string name="empty_email">Email is not empty</string>
+    <string name="empty_password">Password is not empty</string>
+    <string name="not_match_password">Password not match repassword</string>
+    <string name="header_forgot_password">FORGOT PASSWORD</string>
+    <string name="value_trade_win">tradewin</string>
 </resources>

@@ -45,6 +45,10 @@
         <activity android:name=".register.RegisterActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".forgot_password.ForgotPasswordActivity"
+            android:screenOrientation="portrait"/>
+
+
 
 
         <meta-data

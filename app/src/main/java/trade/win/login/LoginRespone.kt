@@ -43,4 +43,7 @@ class LoginRespone: Serializable {
     @SerializedName("totaldonate")
     val totaldonate: String? = null
 
+    @SerializedName("linkref")
+    val linkref: String? = null
+
 }

@@ -8,12 +8,11 @@ import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_login.*
 import trade.win.MainActivity
 import trade.win.R
-import trade.win.authenticate.UserManager
 import trade.win.base.BaseActivity
+import trade.win.forgot_password.ForgotPasswordActivity
 import trade.win.help.MD5
 import trade.win.help.SharedPreferencesHelper
 import trade.win.register.RegisterActivity
-import trade.win.webview.WebviewFragment
 
 class LoginActivity : BaseActivity(), ILogin {
 
@@ -50,6 +49,10 @@ class LoginActivity : BaseActivity(), ILogin {
 
         cbRememberme.setOnCheckedChangeListener { compoundButton, check ->
             SharedPreferencesHelper(this).saveRememberLogin(check)
+        }
+
+        txtForgotPassword.setOnClickListener {
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
         }
     }
 

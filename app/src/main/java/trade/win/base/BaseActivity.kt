@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.JsonIOException
 import com.google.gson.JsonSyntaxException
 import es.dmoral.toasty.Toasty
+import trade.win.App
 import trade.win.R
 import trade.win.help.CustomProgressDialog
 import java.io.FileNotFoundException
@@ -23,10 +24,18 @@ abstract class BaseActivity : AppCompatActivity() {
     open fun dismissProgress() {
         CustomProgressDialog.newInstance().progressDialogStop()
     }
+    open fun showWarning(message: String){
+        Toasty.warning(App.applicationContext(), message).show()
+    }
 
     open fun showError(error: String) {
         dismissProgress()
         Toasty.error(this, error).show()
+    }
+
+    open fun showSuccess(error: String) {
+        dismissProgress()
+        Toasty.success(this, error, 10000).show()
     }
 
     open fun showOnFailureException(t: Throwable) {
