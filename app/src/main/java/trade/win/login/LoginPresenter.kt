@@ -11,8 +11,8 @@ import trade.win.rest.RestClient
 class LoginPresenter {
     lateinit var iLogin: ILogin
 
-    fun login(email: String, password: String, time: String, sign: String, context: Context){
-        val callAPI = RestClient.retrofitService().login(email, password,time, sign)
+    fun login(email: String, password: String, time: String, sign: String,fcm: String, context: Context){
+        val callAPI = RestClient.retrofitService().login(email, password,time, sign, fcm, "android")
         callAPI.enqueue(object :Callback<LoginRespone>{
             override fun onFailure(call: Call<LoginRespone>, t: Throwable) {
                 iLogin.onErrorFailure(t)

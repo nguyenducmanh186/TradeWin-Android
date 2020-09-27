@@ -1,10 +1,251 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <include layout="@layout/layout_header"/>
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_header" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <androidx.cardview.widget.CardView
+            android:layout_margin="@dimen/margin_10dp"
+            app:cardElevation="@dimen/margin_top_5dp"
+            android:id="@+id/layoutLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:padding="@dimen/margin_10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtInvitationLink"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Invitation Link"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/font_size_18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    app:layout_constraintTop_toBottomOf="@+id/txtInvitationLink">
+
+                    <TextView
+                        android:gravity="center|left"
+                        android:id="@+id/txtLink"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_link"
+                        android:padding="@dimen/margin_10dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnClipBoard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/selector_button_copy"
+                        android:src="@drawable/ic_baseline_file_copy_24"
+                        android:padding="@dimen/margin_10dp" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/layoutLevel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_10dp"
+            app:cardElevation="@dimen/margin_top_5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutLink">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_10dp">
+
+                <LinearLayout
+                    android:id="@+id/layoutInvitetotal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Invite Total:"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/font_size_18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toBottomOf="@+id/layoutLink" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" 0 Level 1"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintTop_toBottomOf="@+id/layoutLink" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/txtLevel2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="● 0 Level 2 - 0 Level 3"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutInvitetotal" />
+
+                <TextView
+                    android:id="@+id/txtLevel3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="● 0 Level 4 - 0 Level 5"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintTop_toBottomOf="@+id/txtLevel2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/layoutyourEard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_10dp"
+            app:cardElevation="@dimen/margin_top_5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutLevel">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="You Earned:"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/font_size_18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:background="@drawable/bg_date"
+                    android:paddingLeft="@dimen/margin_10dp"
+                    android:paddingTop="@dimen/margin_top_5dp"
+                    android:paddingRight="@dimen/margin_10dp"
+                    android:paddingBottom="@dimen/margin_top_5dp"
+                    android:text="VN"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/layoutCommission"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_10dp"
+            android:layout_marginTop="@dimen/margin_20dp"
+            app:cardElevation="@dimen/margin_top_5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutyourEard">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Commission 5 Level = 40%"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/font_size_18sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:textColor="@android:color/black"
+                    android:text="● Level 1 = 20%"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:textColor="@android:color/black"
+                    android:text="● Level 2 to Level 5 = 5%"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            app:cardElevation="@dimen/margin_top_5dp"
+            android:layout_margin="@dimen/margin_10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutCommission"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="@dimen/margin_10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textStyle="bold"
+                    android:textSize="@dimen/font_size_18sp"
+                    android:textColor="@android:color/black"
+                    android:text="@string/invite_now"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="● Use your unique link to invite your friends over message or email"
+                    android:textColor="@android:color/black"/>
+                <TextView
+                    android:layout_marginTop="@dimen/margin_top_5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="● Earn commissions for direct referrals and for indirect referrals from your friends every time they upgrade VIP Member
+"
+                    android:textColor="@android:color/black"/>
+                <TextView
+                    android:layout_marginTop="@dimen/margin_top_5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="● All fraudulent actions are prohibited, fraudulent accounts will not receive rewards"
+                    android:textColor="#55B6B8"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </LinearLayout>

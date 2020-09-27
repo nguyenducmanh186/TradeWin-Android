@@ -8,6 +8,9 @@ class HistoryResponse : Serializable {
     @SerializedName("history")
     val listHistory: ArrayList<HistoryData>? = null
 
+    @SerializedName("type")
+    val type: Int? = null
+
 
 }
 

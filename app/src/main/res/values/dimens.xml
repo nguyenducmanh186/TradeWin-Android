@@ -10,4 +10,5 @@
     <dimen name="radius_5dp">5dp</dimen>
     <dimen name="margin_top_5dp">5dp</dimen>
     <dimen name="text_size_17dp">17sp</dimen>
+    <dimen name="font_size_18sp">18sp</dimen>
 </resources>

@@ -23,7 +23,12 @@ class HistoryPresenter {
             ) {
                 if (response.isSuccessful){
                     if (response.body()!= null){
-                        iHistory.onSuccess(response.body()!!)
+                        val body = response.body()!!
+                        if (body.size >0 && body[0].type!=RestClient.CODE_EXPIRE_TOKEN){
+                            iHistory.onSuccess(response.body()!!)
+                        } else {
+                            iHistory.onExpireToken()
+                        }
                     }
                 } else {
                     iHistory.onError(response.message())

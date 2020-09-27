@@ -8,8 +8,7 @@ import trade.win.BuildConfig
 object RestClient {
     const val CODE_SUCCESS = 200
     const val CODE_ERROR = 403
-    const val CODE_EXPIRE_TOKEN = 405
-    const val CODE_EXPIRE_PASSWORD = 499
+    const val CODE_EXPIRE_TOKEN = 99
     const val CODE_INTERNAL = 500
 
     fun retrofitService(): RestService {

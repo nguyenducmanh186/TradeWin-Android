@@ -53,6 +53,7 @@ class RegisterActivity: BaseActivity() , IRegister{
         val password = edtPassword_register.text.toString()
         val repassword = edtRePassword_register.text.toString()
         val key = MD5().md5(username+password+email+"tradewin")
+        val ref= edtRef.text.toString()
         if (username.isEmpty()){
             showWarning(getString(R.string.empty_username))
         } else if (email.isEmpty()){
@@ -63,7 +64,11 @@ class RegisterActivity: BaseActivity() , IRegister{
             showWarning(getString(R.string.not_match_password))
         } else {
             showProgress()
-            registerPresenter.register(username, email, password, key ,null)
+            if (ref.isEmpty()){
+                registerPresenter.register(username, email, password, key ,null)
+            } else {
+                registerPresenter.register(username, email, password, key ,ref)
+            }
         }
     }
 

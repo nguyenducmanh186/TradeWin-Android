@@ -1,6 +1,8 @@
 package trade.win.base
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import androidx.fragment.app.Fragment
@@ -12,6 +14,7 @@ import es.dmoral.toasty.Toasty
 import trade.win.App
 import trade.win.R
 import trade.win.help.CustomProgressDialog
+import trade.win.login.LoginActivity
 import java.net.ConnectException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
@@ -56,6 +59,12 @@ abstract class BaseFragment : Fragment() {
         Toasty.error(App.applicationContext(), error).show()
     }
 
+    open fun showSuccess(error: String) {
+        dismissProgress()
+        Toasty.success(App.applicationContext(), error).show()
+    }
+
+
     open fun showOnFailureException(t: Throwable) {
         dismissProgress()
         if (t is TimeoutException || t is SocketTimeoutException) {
@@ -67,6 +76,11 @@ abstract class BaseFragment : Fragment() {
         }else {
             showError(t.message.toString())
         }
+    }
+
+    open fun expireToken(context: Context){
+        startActivity(Intent(context, LoginActivity::class.java))
+        (context as Activity).finish()
     }
 
 

@@ -2,14 +2,11 @@ package trade.win.history
 
 import android.app.Activity
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_history.*
-import kotlinx.android.synthetic.main.fragment_web_view.*
 import kotlinx.android.synthetic.main.layout_header.*
 import trade.win.App
 import trade.win.R
@@ -86,6 +83,10 @@ class HistoryFragment : BaseFragment(), IHistory{
         if (historyResponse.size >0){
             initList(historyResponse[0])
         }
+    }
+
+    override fun onExpireToken() {
+        expireToken(App.applicationContext())
     }
 
     override fun onError(error: String) {

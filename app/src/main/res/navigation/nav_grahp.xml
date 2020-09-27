@@ -6,7 +6,7 @@
     android:id="@+id/nav_grahp"
     tools:ignore="UnusedNavigation">
     <fragment android:id="@+id/fragmentHome"
-        android:name="trade.win.HomeFragment">
+        android:name="trade.win.home.HomeFragment">
         <action android:id="@+id/navigate_fragment_from_home_to_trade_win"
             app:destination="@id/fragmentTradeWin" />
 

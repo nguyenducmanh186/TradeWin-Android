@@ -78,7 +78,7 @@ class LoginActivity : BaseActivity(), ILogin {
             val sign = MD5().md5(edtUsername+passwordEncrypt+unixTime+keyMD5)
 
             Log.i("MMMMMMMMMM", "unixTime: "+  unixTime +"  passwordEncrypt: "+ passwordEncrypt + "   sign: "+sign + "  fcm_token:"+ fcm_token)
-            loginPresenter.login(edtUsername, passwordEncrypt,unixTime.toString(), sign, this)
+            loginPresenter.login(edtUsername, passwordEncrypt,unixTime.toString(), sign, fcm_token,this)
         }
     }
 

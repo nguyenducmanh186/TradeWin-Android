@@ -17,18 +17,17 @@
             android:background="@drawable/bg_login"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
+            <ImageView
                 app:layout_constraintBottom_toBottomOf="@id/guidelineCenter"
                 android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="30sp"
                 android:gravity="center"
-                android:layout_marginTop="@dimen/margin_30dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="Log In Trade.Win"
-                android:layout_width="match_parent"
+                android:src="@mipmap/logo"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <androidx.constraintlayout.widget.Guideline
@@ -39,7 +38,6 @@
                 android:layout_height="wrap_content"/>
 
             <EditText
-                android:text="manhtestgame"
                 android:background="@drawable/bg_edit_text_username"
                 android:layout_marginTop="@dimen/margin_10dp"
                 android:padding="@dimen/padding_edt"
@@ -64,7 +62,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
-                    android:text="admin@123"
                     android:background="@drawable/bg_edit_text_username"
                     android:imeOptions="actionDone"
                     android:padding="@dimen/padding_edt"
