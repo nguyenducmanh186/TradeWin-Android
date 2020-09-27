@@ -19,7 +19,9 @@ import trade.win.base.BaseFragment
 import trade.win.help.SharedPreferencesHelper
 
 
-class InvitationFragment: BaseFragment() {
+class InvitationFragment: BaseFragment() , IInvitation{
+
+    lateinit var invitationPresenter: InvitationPresenter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,7 +35,20 @@ class InvitationFragment: BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         txtHeaderToolbar.text = getString(R.string.header_invitation)
 
+        invitationPresenter =  InvitationPresenter()
+        invitationPresenter.iInvitation = this
+
         initAction()
+        callAPI()
+    }
+
+    private fun callAPI() {
+        if (isConnectedInternet(App.applicationContext())){
+            showProgress()
+            invitationPresenter.getInvitation(App.applicationContext())
+        } else {
+            showWarning(getString(R.string.check_network))
+        }
     }
 
     private fun initAction() {
@@ -51,5 +66,29 @@ class InvitationFragment: BaseFragment() {
         }
 
 
+    }
+
+    override fun onSuccess(ivitation: InvitationResponse) {
+        dismissProgress()
+        txtLevel1.text = ivitation.ref1.toString() + " Level 1"
+        txtLevel2.text = ivitation.ref2.toString() + " Level 2 - " + ivitation.ref3 + " Level 3"
+        txtLevel4.text = ivitation.ref4.toString() + " Level 4 - " + ivitation.ref5 + " Level 5"
+        txtTotalYouEarned.text = if (ivitation.tongtienref!= null) ivitation.tongtienref.toString() else "0"
+    }
+
+    override fun onError() {
+        dismissProgress()
+    }
+
+    override fun onError(msg: String) {
+        showError(msg)
+    }
+
+    override fun onErrorFailure(t: Throwable) {
+        showOnFailureException(t)
+    }
+
+    override fun onExpireToken() {
+        expireToken(App.applicationContext())
     }
 }

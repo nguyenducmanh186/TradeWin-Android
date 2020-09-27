@@ -1,9 +1,9 @@
 package trade.win.rest
 
 import retrofit2.Call
-import retrofit2.Callback
 import retrofit2.http.*
 import trade.win.history.HistoryResponse
+import trade.win.invitation.InvitationResponse
 import trade.win.login.LoginRespone
 import trade.win.register.RegisterResponse
 
@@ -40,4 +40,7 @@ interface RestService {
 
     @GET("check_token.php")
     fun checkExpireToken(@Query("token_parram") token_parram: String): Call<RegisterResponse>
+
+    @GET("getref.php")
+    fun getInvitation(@Query("token_parram") token_parram: String): Call<InvitationResponse>
 }

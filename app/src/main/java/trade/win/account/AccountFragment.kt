@@ -42,10 +42,24 @@ class AccountFragment : BaseFragment() {
             txtDoneSell.text = loginData.signaldonesell.toString()
             txtStoploss.text = loginData.signalstoploss.toString()
 
-            txtBonus.text = loginData.totalref ?: ""
-            txtDonate.text = loginData.totaldonate ?: ""
+            if (loginData.totalref!= null){
+                txtBonus.text =loginData.totalref + " VN"
+            } else {
+                txtBonus.text = "VN"
+            }
 
-            txtVNToken.text = if ( loginData.vnt != null)  loginData.vnt.toString() else "" + " VN"
+            if (loginData.totaldonate!= null){
+                txtDonate.text = loginData.totaldonate + " TW"
+            } else {
+                txtDonate.text = "TW"
+            }
+
+            if ( loginData.vnt != null){
+                txtVNToken.text =  loginData.vnt.toString() + " VN"
+            } else {
+                txtVNToken.text =   "VN"
+            }
+
             txtTWTokenAvailable.text = loginData.twtoken_cash.toString() + " TW"
             txtTWTokenLocked.text = loginData.twtoken.toString() + " TW"
 

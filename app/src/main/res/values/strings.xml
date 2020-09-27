@@ -44,4 +44,7 @@
     <string name="hint_link_ref">Link ref</string>
     <string name="member_vip">Member Vip</string>
     <string name="member_free">Member Free</string>
+    <string name="validate_capcha">Capcha not match</string>
+    <string name="email_invalid">Email address invalid</string>
+    <string name="empty_capcha">Capcha is not empty</string>
 </resources>

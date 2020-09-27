@@ -99,8 +99,10 @@
                         app:layout_constraintTop_toBottomOf="@+id/layoutLink" />
 
                     <TextView
+                        android:id="@+id/txtLevel1"
+                        android:gravity="center|left"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text=" 0 Level 1"
                         android:textColor="@android:color/black"
                         app:layout_constraintTop_toBottomOf="@+id/layoutLink" />
@@ -117,7 +119,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/layoutInvitetotal" />
 
                 <TextView
-                    android:id="@+id/txtLevel3"
+                    android:id="@+id/txtLevel4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="● 0 Level 4 - 0 Level 5"
@@ -149,6 +151,15 @@
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/font_size_18sp"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:textSize="16sp"
+                    android:id="@+id/txtTotalYouEarned"
+                    android:layout_marginLeft="@dimen/margin_top_5dp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center|left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
 
                 <TextView
                     android:layout_width="wrap_content"
