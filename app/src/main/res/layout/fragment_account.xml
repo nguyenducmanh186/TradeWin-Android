@@ -53,7 +53,7 @@
                     android:gravity="center"
                     android:padding="@dimen/margin_10dp"
                     android:textColor="@android:color/white"
-                    android:text="member vip"
+                    android:text="Member Vip"
                     android:background="@drawable/bg_level_member"
                     android:id="@+id/txtLevelMember"
                     android:layout_width="wrap_content"
@@ -61,7 +61,6 @@
 
                 <TextView
                     android:layout_marginLeft="@dimen/margin_10dp"
-                    android:text="2020-09-23 21:33:00"
                     android:background="@drawable/bg_date"
                     android:padding="@dimen/margin_10dp"
                     android:textColor="@android:color/white"

@@ -45,9 +45,23 @@ class AccountFragment : BaseFragment() {
             txtBonus.text = loginData.totalref ?: ""
             txtDonate.text = loginData.totaldonate ?: ""
 
-            txtVNToken.text = loginData.vnt.toString() + " VN"
+            txtVNToken.text = if ( loginData.vnt != null)  loginData.vnt.toString() else "" + " VN"
             txtTWTokenAvailable.text = loginData.twtoken_cash.toString() + " TW"
             txtTWTokenLocked.text = loginData.twtoken.toString() + " TW"
+
+            when(loginData.groupid){
+                UserManager.MEMBER_VIP -> {
+                    txtLevelMember.text = getString(R.string.member_vip)
+                    txtDateLevelmember.text = loginData.regdate
+                    txtDateLevelmember.visibility = View.VISIBLE
+                }
+
+                UserManager.MEMBER_FREE -> {
+                    txtLevelMember.text = getString(R.string.member_free)
+                    txtLevelMember.background = context?.getDrawable(R.drawable.bg_date)
+                    txtDateLevelmember.visibility = View.GONE
+                }
+            }
         }
     }
 

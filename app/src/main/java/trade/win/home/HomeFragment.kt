@@ -31,7 +31,10 @@ class HomeFragment : BaseFragment(), IHome{
 
     private fun checkExpireToken() {
         if (isConnectedInternet(App.applicationContext())){
+            showProgress()
             homePresenter.checkExpireToken(App.applicationContext())
+        } else {
+            showWarning(getString(R.string.check_network))
         }
     }
 

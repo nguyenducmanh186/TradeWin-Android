@@ -46,4 +46,11 @@ class LoginRespone: Serializable {
     @SerializedName("linkref")
     val linkref: String? = null
 
+    @SerializedName("regdate")
+    val regdate: String? = null
+
+    @SerializedName("groupid")
+    val groupid: Int? = null
+
+
 }

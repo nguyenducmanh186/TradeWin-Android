@@ -57,14 +57,16 @@ class UserManager (val context: Context) {
     }
 
     companion object {
-        const val AUTH_TOKEN_TYPE = "heinekenbrewerytour.vn.spo"
-        const val ACCOUNT_TYPE = "heineken-spo"
+        const val AUTH_TOKEN_TYPE = "trade.win"
+        const val ACCOUNT_TYPE = "tradewin-app"
         const val EMAIL= "phone"
         const val PASSWORD ="password"
         const val TOKEN = "token"
-        const val ACCOUNT_ROLE = "account-role"
         const val TOKEN_PREFIX = "Bearer "
-        const val DEVICE_ID ="device"
+        const val MEMBER_VIP = 1
+        const val MEMBER_FREE = 0
+
+
 
         @Volatile
         private var instance: UserManager? = null
