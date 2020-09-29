@@ -56,7 +56,8 @@ abstract class BaseWebView : BaseFragment(){
             //webViewTermsOfUse.settings.setGeolocationDatabasePath(filesDir.path)
             webView.webChromeClient = GeoWebChromeClient()
 
-            var count = 0
+            var shouldLoading = false
+            var countFinish = 0
 
             webView.webViewClient = object : WebViewClient() {
                 override fun onReceivedSslError(
@@ -70,6 +71,7 @@ abstract class BaseWebView : BaseFragment(){
                 override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
                     view.loadUrl(url)
                     shouldOverrideUrlLoading(url)
+                    shouldLoading =true
                     Log.i("MMMMMMMMM", "shouldOverrideUrlLoading")
                     return true
                 }
@@ -79,25 +81,18 @@ abstract class BaseWebView : BaseFragment(){
                     Log.i("MMMMMMMMM", "onReceivedError")
                     dismissProgress()
 
-//                    if (isLoading) {
-//                        dismissProgress()
-//                        isLoading = false
-//                    }
                 }
 
 
                 override fun onPageFinished(view: WebView?, url: String?) {
                     super.onPageFinished(view, url)
                     Log.i("MMMMMMMMM", "onPageFinished")
-                    count++
-                    if (count == 2){
+                    countFinish++
+                    if (shouldLoading && countFinish == 2){
+                        dismissProgress()
+                    } else if (!shouldLoading){
                         dismissProgress()
                     }
-//                    if (isLoading) {
-//                        onPageFinished(url)
-//                        dismissProgress()
-//                        isLoading = false
-//                    }
                 }
 
             }

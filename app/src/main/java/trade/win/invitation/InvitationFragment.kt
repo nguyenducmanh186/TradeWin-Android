@@ -71,8 +71,8 @@ class InvitationFragment: BaseFragment() , IInvitation{
     override fun onSuccess(ivitation: InvitationResponse) {
         dismissProgress()
         txtLevel1.text = ivitation.ref1.toString() + " Level 1"
-        txtLevel2.text = ivitation.ref2.toString() + " Level 2 - " + ivitation.ref3 + " Level 3"
-        txtLevel4.text = ivitation.ref4.toString() + " Level 4 - " + ivitation.ref5 + " Level 5"
+        txtLevel2.text = "● "+ivitation.ref2.toString() + " Level 2 - " + ivitation.ref3 + " Level 3"
+        txtLevel4.text = "● "+ivitation.ref4.toString() + " Level 4 - " + ivitation.ref5 + " Level 5"
         txtTotalYouEarned.text = if (ivitation.tongtienref!= null) ivitation.tongtienref.toString() else "0"
     }
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TradeWin App</string>
+    <string name="app_name">Trade Win</string>
     <string name="title_email">Email or Username</string>
     <string name="hint_email_username">Enter Email or Username</string>
     <string name="title_password">Password</string>
@@ -47,4 +47,8 @@
     <string name="validate_capcha">Capcha not match</string>
     <string name="email_invalid">Email address invalid</string>
     <string name="empty_capcha">Capcha is not empty</string>
+    <string name="header_add_signal">ADD SIGNAL</string>
+    <string name="header_balances">BALANCES</string>
+    <string name="header_membership">MEMBER SHIP</string>
+    <string name="header_staking">STAKING</string>
 </resources>

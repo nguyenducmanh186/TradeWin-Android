@@ -24,7 +24,8 @@ import java.net.URLDecoder
 import java.net.URLEncoder
 
 class WebviewFragment : BaseWebView() {
-    private val baseURL = "http://trade.win/test-token/?token_parram="
+    private val baseURL = "https://trade.win/check-token-app/?token_parram="
+    private var url = "home"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,6 +35,10 @@ class WebviewFragment : BaseWebView() {
         return inflater.inflate(R.layout.fragment_web_view, container, false)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        url = arguments?.getString(URL, "home")!!
+    }
     override fun getWebView(): WebView {
         return webView
     }
@@ -43,7 +48,6 @@ class WebviewFragment : BaseWebView() {
         txtHeaderToolbar.text = getString(R.string.header_trade_win)
         initAction()
         initWebview()
-        pullToReFreshLayout()
 
     }
 
@@ -61,25 +65,18 @@ class WebviewFragment : BaseWebView() {
 
         Log.i("HHHHHHHHHHH", "token: "+token)
 
-        loadUrl(baseURL + encode, webView)
+        loadUrl(baseURL + encode +"&url=$url", webView)
     }
 
-    private fun pullToReFreshLayout() {
-        swipeWebView.setColorSchemeResources(
-            R.color.colorPrimary,
-            android.R.color.holo_green_dark,
-            android.R.color.holo_orange_dark,
-            android.R.color.holo_blue_dark
-        )
-
-        swipeWebView.setOnRefreshListener {
-            initWebview()
-            Handler().postDelayed ({
-                swipeWebView.isRefreshing = false
-            }, 3000)
-        }
-
+    companion object {
+        const val URL= "url"
+        const val HOME = "home"
+        const val ADD_SIGNAL = "add-signal"
+        const val BALANCES = "balances"
+        const val MEMBER_SHIP = "member-ship"
+        const val STAKING = "staking"
 
     }
+
 
 }
