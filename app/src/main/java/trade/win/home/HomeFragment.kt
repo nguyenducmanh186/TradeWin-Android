@@ -28,7 +28,6 @@ class HomeFragment : BaseFragment(), IHome, HomeAdapter.IOnClickItemHome {
         homePresenter = HomePresenter()
         homePresenter.iHome = this
 
-        initAction()
         initDataHome()
         checkExpireToken()
     }
@@ -67,28 +66,28 @@ class HomeFragment : BaseFragment(), IHome, HomeAdapter.IOnClickItemHome {
             HomeData(
                 ADD_SIGNAL,
                 getString(R.string.header_add_signal),
-                context?.getDrawable(R.mipmap.ic_tradewin)
+                context?.getDrawable(R.mipmap.vip)
             )
         )
         listHome.add(
             HomeData(
                 BALANCES,
                 getString(R.string.header_balances),
-                context?.getDrawable(R.mipmap.ic_tradewin)
+                context?.getDrawable(R.mipmap.balance)
             )
         )
         listHome.add(
             HomeData(
                 MEMBER_SHIP,
                 getString(R.string.header_membership),
-                context?.getDrawable(R.mipmap.ic_tradewin)
+                context?.getDrawable(R.mipmap.membership)
             )
         )
         listHome.add(
             HomeData(
                 STAKING,
                 getString(R.string.header_staking),
-                context?.getDrawable(R.mipmap.ic_tradewin)
+                context?.getDrawable(R.mipmap.stake)
             )
         )
 
@@ -106,26 +105,6 @@ class HomeFragment : BaseFragment(), IHome, HomeAdapter.IOnClickItemHome {
         }
     }
 
-    private fun initAction() {
-//        layoutTradeWin.setOnClickListener {
-//            findNavController().navigate(R.id.navigate_fragment_from_home_to_trade_win)
-//        }
-//
-//        layoutNotification.setOnClickListener {
-//            findNavController().navigate(R.id.navigate_fragment_from_home_to_history)
-//
-//        }
-//
-//        layoutAccount.setOnClickListener {
-//            findNavController().navigate(R.id.navigate_fragment_from_home_to_account)
-//
-//        }
-//
-//        layoutInvatation.setOnClickListener {
-//            findNavController().navigate(R.id.navigate_fragment_from_home_to_invitation)
-//
-//        }
-    }
 
     override fun onExpireToken() {
         expireToken(App.applicationContext())
@@ -149,6 +128,7 @@ class HomeFragment : BaseFragment(), IHome, HomeAdapter.IOnClickItemHome {
         when (id){
             TRADEWIN -> {
                 bundle.putString(WebviewFragment.URL, WebviewFragment.HOME)
+                bundle.putString(WebviewFragment.TITLE, getString(R.string.header_trade_win))
                 findNavController().navigate(R.id.navigate_fragment_from_home_to_trade_win, bundle)
             }
 
@@ -167,21 +147,25 @@ class HomeFragment : BaseFragment(), IHome, HomeAdapter.IOnClickItemHome {
 
             ADD_SIGNAL -> {
                 bundle.putString(WebviewFragment.URL, WebviewFragment.ADD_SIGNAL)
+                bundle.putString(WebviewFragment.TITLE, getString(R.string.header_add_signal))
                 findNavController().navigate(R.id.navigate_fragment_from_home_to_trade_win, bundle)
             }
 
             BALANCES -> {
                 bundle.putString(WebviewFragment.URL, WebviewFragment.BALANCES)
+                bundle.putString(WebviewFragment.TITLE, getString(R.string.header_balances))
                 findNavController().navigate(R.id.navigate_fragment_from_home_to_trade_win, bundle)
             }
 
             MEMBER_SHIP -> {
+                bundle.putString(WebviewFragment.TITLE, getString(R.string.header_membership))
                 bundle.putString(WebviewFragment.URL, WebviewFragment.MEMBER_SHIP)
                 findNavController().navigate(R.id.navigate_fragment_from_home_to_trade_win, bundle)
             }
 
             STAKING -> {
                 bundle.putString(WebviewFragment.URL, WebviewFragment.STAKING)
+                bundle.putString(WebviewFragment.TITLE, getString(R.string.header_staking))
                 findNavController().navigate(R.id.navigate_fragment_from_home_to_trade_win, bundle)
             }
         }

@@ -26,6 +26,7 @@ import java.net.URLEncoder
 class WebviewFragment : BaseWebView() {
     private val baseURL = "https://trade.win/check-token-app/?token_parram="
     private var url = "home"
+    private var header = "header"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,6 +39,7 @@ class WebviewFragment : BaseWebView() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         url = arguments?.getString(URL, "home")!!
+        header = arguments?.getString(TITLE)!!
     }
     override fun getWebView(): WebView {
         return webView
@@ -45,7 +47,7 @@ class WebviewFragment : BaseWebView() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        txtHeaderToolbar.text = getString(R.string.header_trade_win)
+        txtHeaderToolbar.text = header
         initAction()
         initWebview()
 
@@ -70,6 +72,7 @@ class WebviewFragment : BaseWebView() {
 
     companion object {
         const val URL= "url"
+        const val TITLE= "title"
         const val HOME = "home"
         const val ADD_SIGNAL = "add-signal"
         const val BALANCES = "balances"

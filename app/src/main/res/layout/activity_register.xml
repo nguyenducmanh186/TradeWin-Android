@@ -134,7 +134,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
-                    android:hint="Enter capcha"
+                    android:hint="Enter captcha"
                     android:inputType="text"
                     android:layout_marginRight="@dimen/margin_20dp"
                     android:layout_weight="0.6"
