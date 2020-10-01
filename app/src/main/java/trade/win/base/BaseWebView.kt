@@ -1,10 +1,12 @@
 package trade.win.base
 
+import android.app.AlertDialog
 import android.net.http.SslError
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.webkit.*
+import trade.win.R
 
 abstract class BaseWebView : BaseFragment(){
     abstract fun getWebView(): WebView
@@ -65,7 +67,12 @@ abstract class BaseWebView : BaseFragment(){
                     handler: SslErrorHandler?,
                     error: SslError?
                 ) {
-                    handler?.proceed()
+                    val builder = AlertDialog.Builder(context)
+                    builder.setMessage(R.string.notification_error_ssl_cert_invalid)
+                    builder.setPositiveButton(R.string.btn_continue) { _, _ -> handler?.proceed() }
+                    builder.setNegativeButton(R.string.btn_cancel) { _, _ -> handler?.cancel() }
+                    val dialog = builder.create()
+                    dialog.show()
                 }
 
                 override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
@@ -107,7 +114,7 @@ abstract class BaseWebView : BaseFragment(){
             })
 
         } else {
-//            showErrorNetwork()
+            showWarning(getString(R.string.check_network))
         }
 
     }

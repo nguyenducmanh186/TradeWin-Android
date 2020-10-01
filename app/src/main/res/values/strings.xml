@@ -41,7 +41,7 @@
     <string name="header_forgot_password">FORGOT PASSWORD</string>
     <string name="value_trade_win">tradewin</string>
     <string name="invite_now"><u>Invite now</u></string>
-    <string name="hint_link_ref">Link ref</string>
+    <string name="hint_link_ref">Ref Code</string>
     <string name="member_vip">Member Vip</string>
     <string name="member_free">Member Free</string>
     <string name="validate_capcha">Capcha not match</string>
@@ -51,4 +51,7 @@
     <string name="header_balances">BALANCES</string>
     <string name="header_membership">MEMBER SHIP</string>
     <string name="header_staking">STAKING</string>
+    <string name="notification_error_ssl_cert_invalid">Do you want to continue anyway?</string>
+    <string name="btn_continue">Continue</string>
+    <string name="btn_cancel">Cancel</string>
 </resources>

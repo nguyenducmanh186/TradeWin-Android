@@ -73,7 +73,7 @@ class HomeFragment : BaseFragment(), IHome, HomeAdapter.IOnClickItemHome {
             HomeData(
                 BALANCES,
                 getString(R.string.header_balances),
-                context?.getDrawable(R.mipmap.balance)
+                context?.getDrawable(R.mipmap.balances)
             )
         )
         listHome.add(
