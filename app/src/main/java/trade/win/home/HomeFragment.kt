@@ -55,13 +55,7 @@ class HomeFragment : BaseFragment(), IHome, HomeAdapter.IOnClickItemHome {
                 context?.getDrawable(R.mipmap.ic_invitation)
             )
         )
-        listHome.add(
-            HomeData(
-                ACCOUNT,
-                getString(R.string.header_account_manager),
-                context?.getDrawable(R.mipmap.ic_account)
-            )
-        )
+
         listHome.add(
             HomeData(
                 ADD_SIGNAL,
@@ -88,6 +82,14 @@ class HomeFragment : BaseFragment(), IHome, HomeAdapter.IOnClickItemHome {
                 STAKING,
                 getString(R.string.header_staking),
                 context?.getDrawable(R.mipmap.stake)
+            )
+        )
+
+        listHome.add(
+            HomeData(
+                ACCOUNT,
+                getString(R.string.header_account_manager),
+                context?.getDrawable(R.mipmap.ic_account)
             )
         )
 

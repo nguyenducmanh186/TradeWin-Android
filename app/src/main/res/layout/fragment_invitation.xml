@@ -153,15 +153,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:textSize="16sp"
                     android:id="@+id/txtTotalYouEarned"
-                    android:layout_marginLeft="@dimen/margin_top_5dp"
-                    android:textColor="@android:color/black"
-                    android:gravity="center|left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"/>
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_10dp"

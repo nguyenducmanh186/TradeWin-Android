@@ -55,7 +55,7 @@ class AccountFragment : BaseFragment() {
             }
 
             if ( loginData.vnt != null){
-                txtVNToken.text =  loginData.vnt.toString() + " VN"
+                txtVNToken.text =  loginData.vn99.toString() + " VN"
             } else {
                 txtVNToken.text =   "VN"
             }
