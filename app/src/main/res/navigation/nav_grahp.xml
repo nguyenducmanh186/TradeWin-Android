@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/fragmentHome"
+    android:id="@+id/nav_grahp"
+    tools:ignore="UnusedNavigation">
+    <fragment android:id="@+id/fragmentHome"
+        android:name="trade.win.home.HomeFragment">
+        <action android:id="@+id/navigate_fragment_from_home_to_trade_win"
+            app:destination="@id/fragmentTradeWin" />
+
+        <action android:id="@+id/navigate_fragment_from_home_to_history"
+            app:destination="@id/fragmentHistory" />
+
+        <action android:id="@+id/navigate_fragment_from_home_to_account"
+            app:destination="@id/fragmentAccount" />
+
+        <action android:id="@+id/navigate_fragment_from_home_to_invitation"
+            app:destination="@id/fragmentInvitation" />
+
+    </fragment>
+
+    <fragment android:id="@+id/fragmentAccount"
+        android:name="trade.win.account.AccountFragment">
+
+
+    </fragment>
+
+    <fragment android:id="@+id/fragmentHistory"
+        android:name="trade.win.history.HistoryFragment">
+
+
+    </fragment>
+
+    <fragment android:id="@+id/fragmentTradeWin"
+        android:name="trade.win.webview.WebviewFragment">
+
+
+    </fragment>
+
+    <fragment android:id="@+id/fragmentInvitation"
+        android:name="trade.win.invitation.InvitationFragment">
+
+
+    </fragment>
+
+</navigation>

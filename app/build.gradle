@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
-//apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -19,8 +19,19 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs{
+        release {
+            storePassword 'manhnguyen186'
+            keyPassword 'manhnguyen186'
+            keyAlias = 'tradewin'
+            storeFile file('tradewin.jks')
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig signingConfigs.release
+
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -36,16 +47,13 @@ android {
         dev {
             applicationId "trade.win"
             dimension "default"
-            buildConfigField("String", "BASE_URL", "\"https://demo.aris-vn.com:8099/api/\"")
-            buildConfigField("String", "URL_IMAGE", "\"https://demo.aris-vn.com:8099\"")
+            buildConfigField("String", "BASE_URL", "\"https://trade.win/api/\"")
         }
 
         product {
             applicationId "trade.win"
             dimension "default"
-            buildConfigField("String", "BASE_URL", "\"https://demo.aris-vn.com:8108/api/\"")
-            buildConfigField("String", "URL_IMAGE", "\"https://demo.aris-vn.com:8108\"")
-
+            buildConfigField("String", "BASE_URL", "\"https://trade.win/api/\"")
         }
     }
 }
@@ -69,12 +77,12 @@ dependencies {
     implementation 'me.dm7.barcodescanner:zxing:1.9'
     implementation 'me.dm7.barcodescanner:zbar:1.9.13'
 
-//    //Firebase
-//    implementation('com.google.android.gms:play-services-gcm:17.0.0')
-//    implementation('com.google.android.gms:play-services-location:17.0.0')
-//    implementation "com.google.android.gms:play-services-vision:20.1.2"
-//    implementation 'com.google.firebase:firebase-messaging:20.2.4'
-//    implementation 'com.google.firebase:firebase-core:17.5.0'
+    //Firebase
+    implementation('com.google.android.gms:play-services-gcm:17.0.0')
+    implementation('com.google.android.gms:play-services-location:17.0.0')
+    implementation "com.google.android.gms:play-services-vision:20.1.2"
+    implementation 'com.google.firebase:firebase-messaging:20.2.4'
+    implementation 'com.google.firebase:firebase-core:17.5.0'
 
     //Glide
     implementation "com.github.bumptech.glide:glide:4.9.0"

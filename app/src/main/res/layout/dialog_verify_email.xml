@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:src="@drawable/email"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+
+    <TextView
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:textSize="16sp"
+        android:textColor="@color/colorLightGreen1"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="Register success"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_marginTop="@dimen/margin_top_5dp"
+        android:textSize="16sp"
+        android:textColor="@color/colorLightGreen1"
+        android:gravity="center"
+        android:text="You need to activate your account by email to login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:background='@drawable/selector_button_dialog'
+        android:text="Ok"
+        android:id="@+id/btnOk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

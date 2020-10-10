@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="margin_30dp">30dp</dimen>
-    <dimen name="padding_edt">17dp</dimen>
+    <dimen name="padding_edt">15dp</dimen>
     <dimen name="margin_10dp">10dp</dimen>
     <dimen name="margin_20dp">20dp</dimen>
     <dimen name="margin_40dp">40dp</dimen>
     <dimen name="margin_15dp">15dp</dimen>
     <dimen name="padding_5dp">5dp</dimen>
+    <dimen name="radius_5dp">5dp</dimen>
+    <dimen name="margin_top_5dp">5dp</dimen>
+    <dimen name="text_size_17dp">17sp</dimen>
+    <dimen name="font_size_18sp">18sp</dimen>
 </resources>

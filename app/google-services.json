@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "614055302303",
+    "firebase_url": "https://tradewin-ce391.firebaseio.com",
+    "project_id": "tradewin-ce391",
+    "storage_bucket": "tradewin-ce391.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614055302303:android:2058f27647ac67a647feaa",
+        "android_client_info": {
+          "package_name": "trade.win"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "614055302303-d95sg7pspjjmec1156hbonjbj0pfq7b6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0ca6t7-5aIMYlx9Yu7sW8XuhPLMEGo88"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "614055302303-d95sg7pspjjmec1156hbonjbj0pfq7b6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

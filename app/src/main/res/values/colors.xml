@@ -4,4 +4,12 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="colorGreen">#419488</color>
+    <color name="colorDarkGreenPress">#37137A19</color>
+    <color name="colorDarkGreenPress1">#B90B490F</color>
+    <color name="colorPink">#D75C5E</color>
+    <color name="colorLightGreen">#97BD55</color>
+    <color name="colorLightOrange">#D9A252</color>
+    <color name="colorOrange">#EE6F2D</color>
+    <color name="colorLightGreen1">#36871D</color>
+    <color name="colorIconPush">#F3B943</color>
 </resources>

@@ -17,18 +17,17 @@
             android:background="@drawable/bg_login"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
+            <ImageView
                 app:layout_constraintBottom_toBottomOf="@id/guidelineCenter"
                 android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="30sp"
                 android:gravity="center"
-                android:layout_marginTop="@dimen/margin_30dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="Log In Trade.Win"
-                android:layout_width="match_parent"
+                android:src="@mipmap/logo"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <androidx.constraintlayout.widget.Guideline
@@ -77,6 +76,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <CheckBox
+                android:checked="true"
                 android:layout_marginTop="@dimen/margin_10dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layoutPassword"
@@ -111,6 +111,7 @@
                 android:layout_height="wrap_content"/>
 
             <TextView
+                android:id="@+id/txtRegister"
                 android:textColor="@android:color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="@dimen/margin_10dp"

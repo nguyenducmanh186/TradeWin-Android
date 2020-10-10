@@ -1,10 +1,12 @@
 package trade.win.base
 
+import android.app.AlertDialog
 import android.net.http.SslError
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.webkit.*
+import trade.win.R
 
 abstract class BaseWebView : BaseFragment(){
     abstract fun getWebView(): WebView
@@ -41,7 +43,7 @@ abstract class BaseWebView : BaseFragment(){
         // load pdf from google docs
         // "https://docs.google.com/gview?embedded=true&url="
 
-        if (isConnectedInternet(context!!)) {
+        if (isConnectedInternet(requireContext())) {
             var isLoading = true
             showProgress()
 
@@ -56,36 +58,47 @@ abstract class BaseWebView : BaseFragment(){
             //webViewTermsOfUse.settings.setGeolocationDatabasePath(filesDir.path)
             webView.webChromeClient = GeoWebChromeClient()
 
+            var shouldLoading = false
+            var countFinish = 0
+
             webView.webViewClient = object : WebViewClient() {
                 override fun onReceivedSslError(
                     view: WebView?,
                     handler: SslErrorHandler?,
                     error: SslError?
                 ) {
-                    handler?.proceed()
+                    val builder = AlertDialog.Builder(context)
+                    builder.setMessage(R.string.notification_error_ssl_cert_invalid)
+                    builder.setPositiveButton(R.string.btn_continue) { _, _ -> handler?.proceed() }
+                    builder.setNegativeButton(R.string.btn_cancel) { _, _ -> handler?.cancel() }
+                    val dialog = builder.create()
+                    dialog.show()
                 }
 
                 override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
                     view.loadUrl(url)
                     shouldOverrideUrlLoading(url)
+                    shouldLoading =true
+                    Log.i("MMMMMMMMM", "shouldOverrideUrlLoading")
                     return true
                 }
 
                 override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
                     super.onReceivedError(view, request, error)
-                    if (isLoading) {
-//                        dismissProgress()
-                        isLoading = false
-                    }
+                    Log.i("MMMMMMMMM", "onReceivedError")
+                    dismissProgress()
+
                 }
 
 
                 override fun onPageFinished(view: WebView?, url: String?) {
                     super.onPageFinished(view, url)
-                    if (isLoading) {
-                        onPageFinished(url)
-//                        dismissProgress()
-                        isLoading = false
+                    Log.i("MMMMMMMMM", "onPageFinished")
+                    countFinish++
+                    if (shouldLoading && countFinish == 2){
+                        dismissProgress()
+                    } else if (!shouldLoading){
+                        dismissProgress()
                     }
                 }
 
@@ -101,7 +114,7 @@ abstract class BaseWebView : BaseFragment(){
             })
 
         } else {
-//            showErrorNetwork()
+            showWarning(getString(R.string.check_network))
         }
 
     }
